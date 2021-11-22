@@ -1,9 +1,10 @@
 <?php
-    namespace classes;
+    namespace scandiweb\model;
 
     abstract class Product
     {
         private string $sku, $name, $desc;
+        private float $price;
 
         public function setSKU(string $val)
         {
@@ -15,19 +16,29 @@
             $this->name = $val;
         }
 
+        public function setPrice(float $val)
+        {
+            $this->price = $val;
+        }
+
         public function setDesc(string $val)
         {
             $this->desc = $val;
         }
-
+        
         public function getSKU()
         {
-            return $this->sku; 
+            return $this->sku;
         }
 
         public function getName()
         {
             return $this->name;
+        }
+
+        public function getPrice()
+        {
+            return $this->price;
         }
 
         public function getDesc()
@@ -36,11 +47,12 @@
         }
     };
 
-    final class DVD extends Product 
+    class DVD extends Product 
     {
-        private int $size;
+        private float $size;
+        private string $type;
 
-        public function setSize(int $val)
+        public function setSize(float $val)
         {
             $this->size = $val;
         }
@@ -49,28 +61,39 @@
         {
             return $this->size;
         }
+
+        public function setType(string $val)
+        {
+            $this->type = $val;
+        }
+
+        public function getType()
+        {
+            return $this->type;
+        }
     };
 
     final class Furniture extends Product 
     {
-        private string $hight, $widh, $lengh;
+        private float $hight, $widh, $lengh;
+        private string $type;
 
-        public function setHight(string $val)
+        public function setHeight(float $val)
         {
             $this->hight = $val;
         }
 
-        public function setWidth(string $val)
+        public function setWidth(float $val)
         {
             $this->widh = $val;
         }
 
-        public function setLength(string $val)
+        public function setLength(float $val)
         {
             $this->lengh = $val;
         }
 
-        public function getHight()
+        public function getHeight()
         {
             return $this->hight; 
         }
@@ -84,13 +107,24 @@
         {
             return $this->lengh;
         }
+
+        public function setType(string $val)
+        {
+            $this->type = $val;
+        }
+
+        public function getType()
+        {
+            return $this->type;
+        }
     };
 
     final class Book extends Product
     {
-        private int $weight;
+        private float $weight;
+        private string $type;
 
-        public function setWeight(int $val)
+        public function setWeight(float $val)
         {
             $this->weight = $val;
         }
@@ -98,6 +132,16 @@
         public function getWeight()
         {
             return $this->weight;
+        }
+
+        public function setType(string $val)
+        {
+            $this->type = $val;
+        }
+
+        public function getType()
+        {
+            return $this->type;
         }
     };
 ?>

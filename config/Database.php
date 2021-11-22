@@ -1,12 +1,12 @@
 <?php
-    namespace config;
+    namespace scandiweb\config;
     
     use PDO;
     
     class Database
     {
         private string $server = 'localhost';
-        private string $db = 'scandia';
+        private string $db = 'scandiweb';
         private string $user = 'root';
         private string $password = 'a';
         private object $conn;

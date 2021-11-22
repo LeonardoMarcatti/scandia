@@ -1,0 +1,15 @@
+#show_me{
+    margin-bottom: 20px;
+}
+
+#top{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+hr{
+    color: goldenrod;
+}
