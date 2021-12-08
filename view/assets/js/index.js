@@ -1,17 +1,30 @@
 $('input[type="radio"]').on('click', function (p) { 
     let val = p.target.value;
-    getAll(val);
+    switch (val) {
+        case 'furniture':
+            getAll("../controller/getAllFurnitures.php");
+            break;
+        case 'dvd':
+            getAll("../controller/getAllDVDs.php");
+            break;
+        case 'book':
+            getAll("../controller/getAllBooks.php");
+            break;
+        default:
+            getAll("../controller/getAllProducts.php");
+            break;
+    };
  });
 
  $(document).ready(function (param) { 
-     getAll();
-  })
+     getAll("../controller/getAllProducts.php");
+  });
 
   function getAll(p) {
     $.ajax({
         type: "post",
-        url: "../controller/get_products.php",
-        data: 'val=' + p,
+        url: p,
+        data: null,
         success: function (response) {
             let products = '';
             $.each(JSON.parse(response), function (key, val) { 
@@ -50,6 +63,7 @@ $('input[type="radio"]').on('click', function (p) {
 $('#delete-product-btn').on('click', function (p) { 
     let del = $('input[type=checkbox]:checked').closest('.card').find('p[hidden]');
     $.each(del, function (i, el) {
+        console.log(el);
         $.ajax({
             type: "post",
             url: "../controller/del_product.php",

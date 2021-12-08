@@ -20,6 +20,7 @@ $('#productType').on('change', function (p) {
                 <b>Description:</b>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium quasi autem, rem quam dolor laboriosam. Voluptatum cupiditate accusantium ad alias numquam rem provident vel odio, in iusto eligendi ipsum minima.</p>
             </div>`);
+            $('form').attr('action', '../controller/save_dvd.php');
             break;
         case 'furniture':
             $('#product_area').html(`<div class="row mt-3">
@@ -48,6 +49,7 @@ $('#productType').on('change', function (p) {
                 <b>Description:</b>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium quasi autem, rem quam dolor laboriosam. Voluptatum cupiditate accusantium ad alias numquam rem provident vel odio, in iusto eligendi ipsum minima.</p>
             </div>`);
+            $('form').attr('action', '../controller/save_furniture.php');
             break;
         case 'book':
             $('#product_area').html(`<div class="col-3 mt-3">
@@ -59,6 +61,7 @@ $('#productType').on('change', function (p) {
                     <b>Description:</b>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium quasi autem, rem quam dolor laboriosam. Voluptatum cupiditate accusantium ad alias numquam rem provident vel odio, in iusto eligendi ipsum minima.</p>
                 </div>`);
+                $('form').attr('action', '../controller/save_book.php');
             break;
         default:
             $('#product_area').html('');
