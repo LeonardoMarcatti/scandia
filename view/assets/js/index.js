@@ -1,5 +1,3 @@
-
-
 function getAll(p) {
     $.ajax({
         type: "post",

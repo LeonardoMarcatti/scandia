@@ -18,4 +18,4 @@ create table products(
     product_type varchar(15)
 );
 
-2 - Inside folder /config you gonna find a database file responsable for creating DB conecton. You have to adjust server, db, user and password according to your system. 
+2 - Inside /config folder you gonna find a database file responsable for creating DB conecton. You have to adjust server, db, user and password according to your system. 
