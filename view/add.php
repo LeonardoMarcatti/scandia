@@ -32,7 +32,7 @@
         </nav>
         <hr>
         <div class="container-fluid">
-            <form action="" method="post" id="product_form" class="needs-validation" novalidate>
+            <form action="../controller/saveProduct.php" method="post" id="product_form" class="needs-validation" novalidate>
                 <div class="row">
                     <div class="col">
                         <label for="sku" class="form-label">SKU:</label>

@@ -1,26 +1,6 @@
-$('input[type="radio"]').on('click', function (p) { 
-    let val = p.target.value;
-    switch (val) {
-        case 'furniture':
-            getAll("../controller/getAllFurnitures.php");
-            break;
-        case 'dvd':
-            getAll("../controller/getAllDVDs.php");
-            break;
-        case 'book':
-            getAll("../controller/getAllBooks.php");
-            break;
-        default:
-            getAll("../controller/getAllProducts.php");
-            break;
-    };
- });
 
- $(document).ready(function (param) { 
-     getAll("../controller/getAllProducts.php");
-  });
 
-  function getAll(p) {
+function getAll(p) {
     $.ajax({
         type: "post",
         url: p,
@@ -28,13 +8,13 @@ $('input[type="radio"]').on('click', function (p) {
         success: function (response) {
             let products = '';
             $.each(JSON.parse(response), function (key, val) { 
-                 products += `<div class="col-3">
-                 <div class="card" style="width: 18rem;">
-                     <div class="form-check">
-                         <input class="form-check-input delete-checkbox" type="checkbox">
-                         <label class="form-check-label" for="delete_me" id="mylabel">Delete me</label>
-                     </div>
-                     <div class="card-body text-center">
+                    products += `<div class="col-3">
+                    <div class="card" style="width: 18rem;">
+                        <div class="form-check">
+                            <input class="form-check-input delete-checkbox" type="checkbox">
+                            <label class="form-check-label" for="delete_me" id="mylabel">Delete me</label>
+                        </div>
+                        <div class="card-body text-center">
                         <p hidden>${val.id}</p>
                         <h5 class="card-title">${val.sku}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">${val.name}</h6>
@@ -47,8 +27,8 @@ $('input[type="radio"]').on('click', function (p) {
                             products += `<p class="card-text">Dimensions(HxWxL)<br>${val.height}x${val.width}x${val.length}</p>`;
                         };
                         products += `</div>
-                 </div>
-             </div>`;
+                    </div>
+                </div>`;
             });
 
             $('#itens_area').html('');
@@ -57,8 +37,11 @@ $('input[type="radio"]').on('click', function (p) {
             $('#itens_area').fadeIn(250);
         }
     });
-  }
+};
 
+$(document).ready(function (param) { 
+    getAll("../controller/getProducts.php");
+});
 
 $('#delete-product-btn').on('click', function (p) { 
     let del = $('input[type=checkbox]:checked').closest('.card').find('p[hidden]');
@@ -74,5 +57,4 @@ $('#delete-product-btn').on('click', function (p) {
         });
     });
     document.location.reload(true);
- });
- 
+});

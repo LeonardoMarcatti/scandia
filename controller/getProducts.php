@@ -5,12 +5,12 @@
     require_once '../model/Product.php';
     require_once '../config/Database.php';
 
-    use \scandiweb\model\All;
     use scandiweb\config\Database;
+    use scandiweb\model\ProductDAO;
 
     $db = new Database;
     $conn = $db->getConnection();
-    $dao = new All($conn);
+    $dao = new ProductDAO($conn);
     $all = $dao->getAllProducts();
     echo \json_encode($all);
 ?>

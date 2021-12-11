@@ -6,7 +6,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel="icon" href="assets/img/sw.png" type="image/png" sizes="16x16">
         <link rel="stylesheet" href="assets/css/style.css">
-        <title>Product List :D</title>
+        <title>Products List</title>
     </head>
     <body class="container-fluid">
         <nav class="navbar navbar-dark bg-dark navbar-expand" id="top">
@@ -15,7 +15,7 @@
                     <img src="assets/img/sw.png" alt="" width="30" height="25" class="d-inline-block align-text-top">ScandiWeb
                 </a>
                 <div id="title">
-                    <h1>Product List</h1>
+                    <h1>Products List</h1>
                 </div>
                 <div class="float-end">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -29,25 +29,6 @@
               </div>
             </div>
         </nav>
-        <div id="show_me">
-            <h3>Show me:</h3>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="radio_product" value="all" checked>
-                <label class="form-check-label" for="everything" checked>Everything</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="radio_product" value="furniture">
-                <label class="form-check-label" for="flexRadioDefault1">Furniture</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="radio_product" value="book">
-                <label class="form-check-label" for="flexRadioDefault1">Books</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="radio_product" value="dvd">
-                <label class="form-check-label" for="flexRadioDefault1">DVD</label>
-            </div>
-        </div>
         <div class="row g-5" id="itens_area"></div>   
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
