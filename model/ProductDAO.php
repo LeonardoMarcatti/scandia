@@ -18,7 +18,7 @@
 
         public function save(Product $p)
         {
-            $sql = 'insert into products(sku, name, price, size, height, width, length, weight, type) values(:sku, :name, :price, :size, :height, :width, :length, :weight, :type)';
+            $sql = 'insert into products(sku, name, price, size, height, width, length, weight, product_type) values(:sku, :name, :price, :size, :height, :width, :length, :weight, :type)';
             $insert = $this->conn->prepare($sql);
             $insert->bindValue(':sku', $p->getSKU());
             $insert->bindValue(':name', $p->getName());

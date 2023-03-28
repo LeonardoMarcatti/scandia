@@ -1,7 +1,54 @@
-#top{
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 100vh;
+    grid-template-rows: 50px minmax(calc(100vh - 80px), auto) 30px;
+}
+
+nav {
+    height: 100%;
+}
+
+footer {
+background-color: rgb(39, 39, 39);
+color: white;
+text-align: center;
+}
+
+#top {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
     align-items: center;
-    color: white;
+    justify-content: center;
 }
+
+#nav_content {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    padding: 0 10px;
+}
+
+#btns {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#btns > a {
+    margin-left: 10px;
+}
+
+#itens_area {
+    padding: 10px;
+    width: 100%;
+}
+
+.mylabel {
+    margin: 10px;
+}
+

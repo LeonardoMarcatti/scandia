@@ -7,8 +7,8 @@
     {
         private string $server = 'localhost';
         private string $db = 'scandiweb';
-        private string $user = 'root';
-        private string $password = 'a';
+        private string $user = 'leo';
+        private string $password = 'Aa119539$';
         private object $conn;
 
         public function getConnection()

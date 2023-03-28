@@ -1,9 +1,19 @@
 <?php
     namespace scandiweb\view;
 
-    require_once '../model/DAO.php';
-    require_once '../model/Product.php';
-    require_once '../config/Database.php';
+    spl_autoload_register(
+        function ($class)
+        {
+            $pathToClass = explode('\\', $class);
+            $class = end($pathToClass);
+
+            if (file_exists(str_replace('controller', 'model/', __DIR__) . $class . '.php')) {
+                require_once str_replace('controller', 'model/', __DIR__) . $class . '.php';
+            } else {
+                require_once str_replace('controller', 'config/', __DIR__) . $class . '.php';
+            };
+        }
+    );
 
     use scandiweb\config\Database;
     use scandiweb\model\ProductDAO;

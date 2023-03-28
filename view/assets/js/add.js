@@ -1,10 +1,7 @@
 
 //When Save button is clicked this function submits the product form
 $('#save').on('click', function (p) {
-    setTimeout(() => {
-        $('#hidden_send').click();
-    }, 500);
-    
+    $('#hidden_send').click();
 });
     
     //This function changes the html content of #product_area in #product_form as well as the action attribute
@@ -18,7 +15,7 @@ $('#productType').on('change', function (p) {
                     Please, provide the data of indicated type
                 </div>
                 <b>Description:</b>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium quasi autem, rem quam dolor laboriosam. Voluptatum cupiditate accusantium ad alias numquam rem provident vel odio, in iusto eligendi ipsum minima.</p>
+                <p>DVD is a physical media used to store data</p>
             </div>`);
             break;
         case 'furniture':
@@ -46,7 +43,7 @@ $('#productType').on('change', function (p) {
                     </div>
                 </div>
                 <b>Description:</b>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium quasi autem, rem quam dolor laboriosam. Voluptatum cupiditate accusantium ad alias numquam rem provident vel odio, in iusto eligendi ipsum minima.</p>
+                <p>Furniture are made out of wood.</p>
             </div>`);
             break;
         case 'book':
@@ -57,7 +54,7 @@ $('#productType').on('change', function (p) {
                         Please, provide the data of indicated type
                     </div>
                     <b>Description:</b>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium quasi autem, rem quam dolor laboriosam. Voluptatum cupiditate accusantium ad alias numquam rem provident vel odio, in iusto eligendi ipsum minima.</p>
+                    <p>Reading books is the best way to get smart.</p>
                 </div>`);
             break;
         default:
