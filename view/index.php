@@ -24,8 +24,8 @@
                         <h1>Products List</h1>
                     </div>
                     <div id="btns">
-                        <a class="nav-link"href="add.php"><button type="button" class="btn btn-success">Add Product</button></button></a>
-                        <a class="nav-link" href="#"><button class="btn btn-danger" id="delete-product-btn">Mass Delete</button></a>
+                        <a class="nav-link"href="add.php"><button type="button" class="btn btn-success">ADD</button></button></a>
+                        <a class="nav-link" href="#"><button class="btn btn-danger" id="delete-product-btn">MAS DELETE</button></a>
                     </div>
                 </div>
             </nav>
@@ -34,7 +34,7 @@
             <div class="row g-5" id="itens_area"></div>
         </main>
         <footer>
-            <small>Made by <a href="https://www.linkedin.com/in/leonardomarcattidasilva/" target="_blank">Leonardo Marcatti</a> with <a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer">Bootstrap 5</a>, <a href="https://www.w3schools.com/css/css_grid.asp">CSS Grid</a>, <a href="https://www.w3schools.com/css/css3_flexbox.asp">FlexBox</a>, <a href="https://jquery.com/">JQuery</a>, <a href="https://developer.mozilla.org/">JavaScript</a> and <a href="https://www.php.net/">PHP</a></small>
+            <small>Scandiweb Test Assignment</small>
         </footer>
     </body>
 </html>

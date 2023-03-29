@@ -1,6 +1,6 @@
 <?php
     namespace scandiweb\model;
-    final class Product
+    class Product
     {
         private ?string $sku, $name;
         private string $type;

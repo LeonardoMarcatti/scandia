@@ -37,14 +37,14 @@
                             <label for="sku" class="form-label">SKU:</label>
                             <input type="text" class="form-control" placeholder="SKU Code" name="sku" id="sku" required>
                             <div class="invalid-feedback">
-                                Please, provide the data of indicated type
+                                Please, submit required data.
                             </div>
                         </div>
                         <div class="col">
                             <label for="sku" class="form-label">Name:</label>
                             <input type="text" class="form-control" placeholder="Product name" name="name" id="name" required>
                             <div class="invalid-feedback">
-                                Please, provide the data of indicated type
+                                Please, submit required data.
                             </div>
                         </div>
                         <div class="col">
@@ -53,7 +53,7 @@
                                 <span class="input-group-text" id="inputGroupPrepend">$</span>
                                 <input type="number" step=0.01 class="form-control" placeholder="0" name="price" id="price" required>
                                 <div class="invalid-feedback">
-                                    Please, provide the data of indicated type
+                                    Please, submit required data.
                                 </div>
                             </div>                        
                         </div>
@@ -63,9 +63,9 @@
                             <label for="type">Type Switcher</label>
                             <select name="type" id="productType" class="form-select">
                                 <option value="0" selected>Select one</option>
-                                <option value="dvd">DVD</option>
-                                <option value="furniture">Furniture</option>
-                                <option value="book">Book</option>
+                                <option value="dvd" id="dvd">DVD</option>
+                                <option value="furniture" id="furniture">Furniture</option>
+                                <option value="book" id="book">Book</option>
                             </select>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
             </div>
         </main>
        <footer>
-        <small>Made by <a href="https://www.linkedin.com/in/leonardomarcattidasilva/" target="_blank">Leonardo Marcatti</a> with <a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer">Bootstrap 5</a>, <a href="https://www.w3schools.com/css/css_grid.asp">CSS Grid</a>, <a href="https://www.w3schools.com/css/css3_flexbox.asp">FlexBox</a>, <a href="https://jquery.com/">JQuery</a>, <a href="https://developer.mozilla.org/">JavaScript</a> and <a href="https://www.php.net/">PHP</a></small>
+        <small>Scandiweb Test Assignment</small>
        </footer>
         
     </body>
