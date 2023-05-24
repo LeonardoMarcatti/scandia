@@ -3,14 +3,14 @@ const getAll = (p) =>{
         type: "post",
         url: p,
         data: null,
-        success: function (response) {
+        success: response => {
             let products = '';
-            $.each(JSON.parse(response), function (key, val) { 
+            $.each(JSON.parse(response), (key, val) => { 
                     products += `<div class="col-3">
                     <div class="card" style="width: 18rem;">
                         <div class="form-check mylabel">
-                            <input class="form-check-input delete-checkbox" type="checkbox">
-                            <label class="form-check-label " for="delete_me" id="mylabel">Delete me</label>
+                            <input class="delete-checkbox" type="checkbox">
+                            
                         </div>
                         <div class="card-body text-center">
                         <p hidden>${val.id}</p>
@@ -37,13 +37,13 @@ const getAll = (p) =>{
     });
 };
 
-$(document).ready(function (param) { 
+$(document).ready( () => { 
     getAll("../controller/getProducts.php");
 });
 
 $('#delete-product-btn').on('click', (p) => { 
-    let del = $('input[type=checkbox]:checked').closest('.card').find('p[hidden]');
-    $.each(del, function (i, el) {
+    const del = $('input[type=checkbox]:checked').closest('.card').find('p[hidden]');
+    $.each(del, (i, el) => {
         $.ajax({
             type: "post",
             url: "../controller/del_product.php",

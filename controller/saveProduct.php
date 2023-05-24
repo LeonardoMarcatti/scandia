@@ -1,23 +1,16 @@
 <?php
     namespace scandiweb\controller;
-
-    spl_autoload_register(
-        function ($class)
-        {
-            $pathToClass = explode('\\', $class);
-            $class = end($pathToClass);
-
-            if (file_exists(str_replace('controller', 'model/', __DIR__) . $class . '.php')) {
-                require_once str_replace('controller', 'model/', __DIR__) . $class . '.php';
-            } else {
-                require_once str_replace('controller', 'config/', __DIR__) . $class . '.php';
-            };
-        }
-    );
+    require_once '../model/Product.php';
+    require_once '../model/ProductDAO.php';
+    require_once '../config/Database.php';
 
     use scandiweb\config\Database;
-    use scandiweb\model\Product;
-    use scandiweb\model\ProductDAO;
+    use scandiweb\model\BookDAO;
+    use scandiweb\model\DVD;
+    use scandiweb\model\Book;
+    use scandiweb\model\DVDDAO;
+    use scandiweb\model\Furniture;
+    use scandiweb\model\FurnitureDAO;
 
     $sku = filter_input(INPUT_POST, 'sku', FILTER_UNSAFE_RAW); 
     $name = filter_input(INPUT_POST, 'name', FILTER_UNSAFE_RAW);
@@ -31,9 +24,24 @@
 
     $db  = new Database();
     $conn = $db->getConnection();
-    $product = new Product($sku, $name, $type, $price, $height, $width, $length, $weight, $size);
-    $dao = new ProductDAO($conn);
-    $dao->save($product);
+    $product = null;
+    $dao = null;
 
+    switch ($type) {
+        case 'dvd':
+            $product = new DVD($sku, $name, $type, $price, $size);
+            $dao = new DVDDAO($conn);
+            break;
+        case 'furniture':
+            $product = new Furniture($sku, $name, $type, $price, $height, $length, $width);
+            $dao = new FurnitureDAO($conn);
+            break;
+        default:
+            $product = new Book($sku, $name, $type, $price, $weight);
+            $dao = new BookDAO($conn);
+            break;
+    }
+
+    $dao->save($product);
     header('Location: ../view/index.php');
 ?>

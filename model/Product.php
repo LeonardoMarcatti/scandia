@@ -1,23 +1,43 @@
 <?php
     namespace scandiweb\model;
-    final class Product
+
+    interface BasicAttributes
+    {
+        public function getSKU();
+        public function getName();
+        public function getPrice();
+        public function getType();
+    }
+
+    interface DVDAttributes extends BasicAttributes
+    {
+        public function getSize();
+    }
+
+    interface BookAttributes extends BasicAttributes
+    {
+        public function getWeight();
+    }
+
+    interface FurnitureAttributes extends BasicAttributes
+    {
+        public function getHeight();
+        public function getLength();
+        public function getWidth();
+    }
+    abstract class Product implements BasicAttributes
     {
         private ?string $sku, $name;
         private string $type;
-        private ?float $price, $hight, $widht, $length, $weight;
-        private ?int $size;
+        private ?float $price;
+        
 
-        public function __construct(string $sku, string $name, string $type, float $price = null, float $hight = null, float $widht = null, float $length = null, float $weight = null, int $size = null )
+        public function __construct(string $sku, string $name, string $type, float $price)
         {
             $this->sku = $sku;
             $this->name = $name;
             $this->type = $type;
             $this->price = $price;
-            $this->hight = $hight;
-            $this->widht = $widht;
-            $this->length = $length;
-            $this->weight= $weight;
-            $this->size = $size;
         }
 
         public function getSKU()
@@ -34,15 +54,44 @@
         {
             return $this->price;
         }
+        
+        public function getType()
+        {
+            return $this->type;
+        }
+    };
+
+    final class DVD extends Product implements DVDAttributes
+    {
+        private int $size;
+
+        public function __construct(string $sku, string $name, string $type, float $price, int $size)
+        {
+            parent::__construct($sku, $name, $type, $price);
+            $this->size = $size;
+        }
+
+        public function getSize()
+        {
+            return $this->size;
+        }
+    }
+
+    final class Furniture extends Product implements FurnitureAttributes
+    {
+        private float $height, $width, $length;
+
+        public function __construct(string $sku, string $name, string $type, float $price, float $height, float $length, float $widht)
+        {
+            parent::__construct($sku, $name, $type, $price);
+            $this->height = $height;
+            $this->width = $widht;
+            $this->length = $length;
+        }
 
         public function getHeight()
         {
-            return $this->hight; 
-        }
-
-        public function getWidth()
-        {
-            return $this->widht;
+            return $this->height;
         }
 
         public function getLength()
@@ -50,19 +99,25 @@
             return $this->length;
         }
 
-        public function getSize()
+        public function getWidth()
         {
-            return $this->size;
+            return $this->width;
+        }        
+    }
+
+    final class Book extends Product implements BookAttributes
+    {
+        private float $weight;
+
+        public function __construct(string $sku, string $name, string $type, float $price, float $weight)
+        {
+            parent::__construct($sku, $name, $type, $price);
+            $this->weight = $weight;
         }
 
         public function getWeight()
         {
-            return $this->weight;
+            return $this->weight;   
         }
-        
-        public function getType()
-        {
-            return $this->type;
-        }
-    };
+    }    
 ?>
