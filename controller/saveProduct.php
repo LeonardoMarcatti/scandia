@@ -5,12 +5,8 @@
     require_once '../config/Database.php';
 
     use scandiweb\config\Database;
-    use scandiweb\model\BookDAO;
-    use scandiweb\model\DVD;
-    use scandiweb\model\Book;
-    use scandiweb\model\DVDDAO;
-    use scandiweb\model\Furniture;
-    use scandiweb\model\FurnitureDAO;
+    use scandiweb\model\Product;
+    use scandiweb\model\ProductDAO;
 
     $sku = filter_input(INPUT_POST, 'sku', FILTER_UNSAFE_RAW); 
     $name = filter_input(INPUT_POST, 'name', FILTER_UNSAFE_RAW);
@@ -24,23 +20,8 @@
 
     $db  = new Database();
     $conn = $db->getConnection();
-    $product = null;
-    $dao = null;
-
-    switch ($type) {
-        case 'dvd':
-            $product = new DVD($sku, $name, $type, $price, $size);
-            $dao = new DVDDAO($conn);
-            break;
-        case 'furniture':
-            $product = new Furniture($sku, $name, $type, $price, $height, $length, $width);
-            $dao = new FurnitureDAO($conn);
-            break;
-        default:
-            $product = new Book($sku, $name, $type, $price, $weight);
-            $dao = new BookDAO($conn);
-            break;
-    }
+    $product = new Product($sku, $name, $type, $price, $size, $height, $length, $width, $weight);
+    $dao = new ProductDAO($conn);
 
     $dao->save($product);
     header('Location: ../view/index.php');

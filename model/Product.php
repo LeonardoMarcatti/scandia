@@ -9,23 +9,15 @@
         public function getType();
     }
 
-    interface DVDAttributes extends BasicAttributes
+    interface ExtendedAttributes extends BasicAttributes
     {
         public function getSize();
-    }
-
-    interface BookAttributes extends BasicAttributes
-    {
         public function getWeight();
-    }
-
-    interface FurnitureAttributes extends BasicAttributes
-    {
         public function getHeight();
         public function getLength();
         public function getWidth();
     }
-    abstract class Product implements BasicAttributes
+    abstract class Main implements BasicAttributes
     {
         private ?string $sku, $name;
         private string $type;
@@ -59,34 +51,26 @@
         {
             return $this->type;
         }
-    };
+    }
 
-    final class DVD extends Product implements DVDAttributes
+    final class Product extends Main implements ExtendedAttributes
     {
-        private int $size;
+        private ?int $size;
+        private ?float $height, $length, $width, $weight;
 
-        public function __construct(string $sku, string $name, string $type, float $price, int $size)
+        public function __construct(string $sku, string $name, string $type, float $price, ?int $size, ?float $height, ?float $length, ?float $widht, ?float $weight)
         {
             parent::__construct($sku, $name, $type, $price);
             $this->size = $size;
+            $this->height = $height;
+            $this->width = $widht;
+            $this->length = $length;
+            $this->weight = $weight;
         }
 
         public function getSize()
         {
             return $this->size;
-        }
-    }
-
-    final class Furniture extends Product implements FurnitureAttributes
-    {
-        private float $height, $width, $length;
-
-        public function __construct(string $sku, string $name, string $type, float $price, float $height, float $length, float $widht)
-        {
-            parent::__construct($sku, $name, $type, $price);
-            $this->height = $height;
-            $this->width = $widht;
-            $this->length = $length;
         }
 
         public function getHeight()
@@ -103,21 +87,10 @@
         {
             return $this->width;
         }        
-    }
-
-    final class Book extends Product implements BookAttributes
-    {
-        private float $weight;
-
-        public function __construct(string $sku, string $name, string $type, float $price, float $weight)
-        {
-            parent::__construct($sku, $name, $type, $price);
-            $this->weight = $weight;
-        }
 
         public function getWeight()
         {
             return $this->weight;   
         }
-    }    
+    }
 ?>
