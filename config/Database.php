@@ -5,10 +5,10 @@
     
     class Database
     {
-        private string $server = 'server_ip';
-        private string $db = 'DB name';
-        private string $user = 'db user';
-        private string $password = 'user password';
+        private string $server = 'localhost';
+        private string $db = 'scandiweb';
+        private string $user = 'leo';
+        private string $password = 'Aa119539$';
         private object $conn;
 
         public function getConnection()
